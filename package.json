@@ -1,0 +1,15 @@
+{
+  "name": "hospital-service",
+  "version": "1.0.0",
+  "description": "backend repo",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "main": "index.js",
+  "author": "Surya Mahardika",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
