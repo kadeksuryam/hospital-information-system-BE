@@ -6,6 +6,9 @@ const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
 const patientsRouter = require('./controllers/patients')
+const doctorsRouter = require('./controllers/doctors')
+const appointmentsRouter = require('./controllers/appointments')
+const adminsRouter = require('./controllers/admins')
 
 logger.info('connecting to', config.MONGODB_URI)
 
@@ -23,6 +26,9 @@ app.use(middleware.requestLogger)
 
 //main endpoints
 app.use('/api/patients', patientsRouter)
+app.use('/api/doctors', doctorsRouter)
+app.use('/api/appointments', appointmentsRouter)
+app.use('/api/admins', adminsRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
