@@ -1,12 +1,12 @@
 const doctorsRouter = require('express').Router()
-const Patient = require('../models/patient')
+const Doctor = require('../models/doctor')
 
 //CREATE A DOCTOR
 doctorsRouter.post('/', async (req, res, next) => {
     const { name, desc } = req.body
 
     try{
-        const doctor = new Patient({
+        const doctor = new Doctor({
             name, desc
         })
         
