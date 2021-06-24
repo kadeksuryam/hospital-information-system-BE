@@ -5,6 +5,7 @@ const cors = require('cors')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
+const patientsRouter = require('./controllers/patients')
 
 logger.info('connecting to', config.MONGODB_URI)
 
@@ -21,7 +22,9 @@ app.use(express.json())
 app.use(middleware.requestLogger)
 
 //main endpoints
+app.use('/api/patients', patientsRouter)
 
 app.use(middleware.unknownEndpoint)
+app.use(middleware.errorHandler)
 
 module.exports = app

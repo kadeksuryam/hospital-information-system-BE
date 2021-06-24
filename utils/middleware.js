@@ -12,7 +12,14 @@ const unknownEndpoint = (req, res) => {
 }
 
 
+const errorHandler = (err, req, res, next) => {
+    logger.info(err.message)
+    
+    return res.status(400).send({error : err.message})
+}
+
 module.exports = {
     requestLogger,
-    unknownEndpoint
+    unknownEndpoint,
+    errorHandler
 }
