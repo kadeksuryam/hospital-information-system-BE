@@ -40,6 +40,10 @@ const authUser = async (req, res, next) => {
     }
 }
 
+const authAdmin = async (req, res, next) => {
+    if(req.userType !== 'admin') return res.status(403).json({ error : 'forbidden' })
+    next()
+}
 
 const unknownEndpoint = (req, res) => {
     res.status(404).send({ error: 'unknown endpoint' })
@@ -47,8 +51,10 @@ const unknownEndpoint = (req, res) => {
 
 
 const errorHandler = (err, req, res, next) => {
-    logger.info(err.message)
-    
+    logger.info(err.name)
+    if(err.name === "TokenExpiredError"){
+        return res.status(401).send({error : "JWT Token has expired" })
+    }
     return res.status(400).send({error : err.message})
 }
 
@@ -56,6 +62,7 @@ module.exports = {
     requestLogger,
     tokenExtractor,
     authUser,
+    authAdmin,
     unknownEndpoint,
     errorHandler
 }
