@@ -5,10 +5,16 @@ const appointmentSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Doctor'
     },
-    patients: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Patient'
-    }],
+    appointmentName : {
+        type: String
+    },
+    cntAppointment : {
+        type : Number,
+        min : 0
+    },
+    maxAppointment : {
+        type : Number
+    },
     desc: {
         type: String
     }
