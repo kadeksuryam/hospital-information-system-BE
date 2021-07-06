@@ -4,7 +4,8 @@
   "description": "backend repo",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build:ui" : "rm -rf build && cd ../frontend/hospital-information-system && yarn build --prod && cp -r build ../../backend/"
   },
   "main": "index.js",
   "author": "Surya Mahardika",
