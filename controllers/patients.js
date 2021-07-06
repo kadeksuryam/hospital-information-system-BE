@@ -1,5 +1,8 @@
 const patientsRouter = require('express').Router()
 const Patient = require('../models/patient')
+const middleware = require('../utils/middleware')
+const jwt = require('jsonwebtoken')
+const config = require('../utils/config')
 
 //CREATE A PATIENT
 patientsRouter.post('/', async (req, res, next) => {
@@ -12,7 +15,14 @@ patientsRouter.post('/', async (req, res, next) => {
         
         const savedPatient = await patient.save()
 
-        res.status(201).json(savedPatient)
+        console.log(savedPatient)
+
+        const userForToken = {userID: savedPatient._id, userType: savedPatient.type}
+
+        //token will expire in next 1 hour
+        const token = jwt.sign(userForToken, config.JWT_SECRET, { expiresIn: 60*60 })
+
+        return res.status(200).send({token, authUserID: userForToken.userID, userType : 'patient'})
 
     } catch(err){
         if (err.name === 'MongoError' && err.code === 11000) {
@@ -22,5 +32,7 @@ patientsRouter.post('/', async (req, res, next) => {
     }
 
 })
+
+//READ Patients
 
 module.exports = patientsRouter
