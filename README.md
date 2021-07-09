@@ -78,7 +78,7 @@ WITH DOCKER:
 
 2. Build the image named `his`
    ```sh
-   docker build -t his
+   docker build -t his .
    ```
 WITHOUT DOCKER:
 
