@@ -74,6 +74,14 @@ Backend
    ```sh
    git clone https://github.com/kadeksuryam/hospital-information-system-BE.git
    ```
+WITH DOCKER:
+
+2. Build the image named `his`
+   ```sh
+   docker build -t his
+   ```
+WITHOUT DOCKER:
+
 2. Install YARN packages
    ```sh
    yarn install
@@ -81,6 +89,19 @@ Backend
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+
+WITH DOCKER:
+
+1. Run the Docker Container
+   ```sh
+   docker run -it -p 5000:5000 his
+   ```
+   Container is now run at PORT 5000 and also same with our machine (host). 
+   You can change the ports by changing command above using the following rule `HOST_PORT:CONTAINER_PORT`
+   
+2. You can open the app at `localhost:HOST_PORT`
+
+WITHOUT DOCKER:
 
 1. Start the server
    ```sh
