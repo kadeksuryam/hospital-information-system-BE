@@ -24,9 +24,9 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
 
 app.use(cors())
 app.use(express.json())
+app.use(express.static('build'))
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
-
 
 //main endpoints
 app.use('/api/login', loginRouter)
@@ -36,6 +36,9 @@ app.use('/api/appointments', appointmentsRouter)
 app.use('/api/patient-appointments', patientAppointmentsRouter)
 app.use('/api/admins', adminsRouter)
 
+app.get('*', (req,res) =>{
+  res.sendFile('index.html', {root: 'build'});
+})
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
