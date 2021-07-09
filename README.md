@@ -109,7 +109,11 @@ WITHOUT DOCKER:
    ```
 2. You can open the app at `localhost:PORT` where PORT is the corresponding PORT that has displayed on the console
 
+3. Use following account to test the Admin functionality:
 
+   Email : `kadeksuryam@gmail.com`
+   
+   Password : `kadeksuryam1729`
 
 <!-- CONTACT -->
 ## Contact
