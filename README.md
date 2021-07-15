@@ -37,7 +37,7 @@
 
 Hospital Information System is a project that is required to build, in a part of COMPFEST Software Engineering Academy selections.
 
-Deployed Site : https://his-sea-compfest.herokuapp.com/
+Deployed Site : https://hospital-information-system-compfest.azurewebsites.net
 
 Frontend Repo : https://github.com/kadeksuryam/hospital-information-system-FE/
 
